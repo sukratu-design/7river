@@ -1,5 +1,6 @@
-import { FeatherMoon } from "@subframe/core";
 import { FeatherSearch } from "@subframe/core";
+import { TextField } from "../ui/components/TextField";
+import { DefaultPageLayout } from "../ui/layouts/DefaultPageLayout";
 
 interface HeatmapPageProps {
   onNavigateToHome?: () => void;
@@ -9,7 +10,7 @@ interface HeatmapPageProps {
   currentPage?: 'home' | 'search' | 'alerts' | 'heatmap';
 }
 
-function HeatmapPage({ onNavigateToHome, onNavigateToSearch, onNavigateToAlerts, onNavigateToHeatmap, currentPage }: HeatmapPageProps) {
+export default function HeatmapPage({ onNavigateToHome, onNavigateToSearch, onNavigateToAlerts, onNavigateToHeatmap, currentPage }: HeatmapPageProps) {
   return (
     <DefaultPageLayout 
       onNavigateToHome={onNavigateToHome}
