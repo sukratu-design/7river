@@ -20,7 +20,8 @@ import { FeatherSearch } from "@subframe/core";
 interface HomepageProps {
   onNavigateToSearch?: () => void;
   onNavigateToAlerts?: () => void;
-  currentPage?: 'home' | 'search';
+  onNavigateToHeatmap?: () => void;
+  currentPage?: 'home' | 'search' | 'alerts' | 'heatmap';
 }
 
 interface CardData {
@@ -41,7 +42,7 @@ const chartData = [
   { Year: "2022", Psychology: 140, Business: 125, Biology: 130 },
 ];
 
-function Homepage({ onNavigateToSearch, onNavigateToAlerts, currentPage }: HomepageProps) {
+function Homepage({ onNavigateToSearch, onNavigateToAlerts, onNavigateToHeatmap, currentPage }: HomepageProps) {
   const [isFilterModalOpen, setIsFilterModalOpen] = React.useState(false);
   const [isCreateGraphModalOpen, setIsCreateGraphModalOpen] = React.useState(false);
 
@@ -135,6 +136,7 @@ function Homepage({ onNavigateToSearch, onNavigateToAlerts, currentPage }: Homep
       <DefaultPageLayout 
         onNavigateToSearch={onNavigateToSearch}
         onNavigateToAlerts={onNavigateToAlerts}
+        onNavigateToHeatmap={onNavigateToHeatmap}
         currentPage={currentPage}
       >
         <div className="flex w-full flex-col items-start gap-6 bg-neutral-50 px-6 py-6">

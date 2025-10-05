@@ -22,10 +22,11 @@ interface AlertsOverviewPageProps {
   onNavigateToHome?: () => void;
   onNavigateToSearch?: () => void;
   onNavigateToAlerts?: () => void;
-  currentPage?: 'home' | 'search' | 'alerts';
+  onNavigateToHeatmap?: () => void;
+  currentPage?: 'home' | 'search' | 'alerts' | 'heatmap';
 }
 
-function AlertsOverviewPage({ onNavigateToHome, onNavigateToSearch, onNavigateToAlerts, currentPage }: AlertsOverviewPageProps) {
+function AlertsOverviewPage({ onNavigateToHome, onNavigateToSearch, onNavigateToAlerts, onNavigateToHeatmap, currentPage }: AlertsOverviewPageProps) {
   const [isCreateAlertModalOpen, setIsCreateAlertModalOpen] = React.useState(false);
   const [showSuccessToast, setShowSuccessToast] = React.useState(false);
   const [createdAlertName, setCreatedAlertName] = React.useState("");
@@ -53,6 +54,7 @@ function AlertsOverviewPage({ onNavigateToHome, onNavigateToSearch, onNavigateTo
         onNavigateToHome={onNavigateToHome}
         onNavigateToSearch={onNavigateToSearch}
         onNavigateToAlerts={onNavigateToAlerts}
+        onNavigateToHeatmap={onNavigateToHeatmap}
         currentPage={currentPage}
       >
         <div className="flex w-full flex-col items-start gap-6 bg-neutral-50 px-6 py-6">

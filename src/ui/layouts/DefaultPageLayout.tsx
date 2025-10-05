@@ -29,7 +29,8 @@ interface DefaultPageLayoutRootProps
   onNavigateToHome?: () => void;
   onNavigateToSearch?: () => void;
   onNavigateToAlerts?: () => void;
-  currentPage?: 'home' | 'search' | 'alerts';
+  onNavigateToHeatmap?: () => void;
+  currentPage?: 'home' | 'search' | 'alerts' | 'heatmap';
   className?: string;
 }
 
@@ -37,7 +38,7 @@ const DefaultPageLayoutRoot = React.forwardRef<
   HTMLDivElement,
   DefaultPageLayoutRootProps
 >(function DefaultPageLayoutRoot(
-  { children, onNavigateToHome, onNavigateToSearch, onNavigateToAlerts, currentPage = 'home', className, ...otherProps }: DefaultPageLayoutRootProps,
+  { children, onNavigateToHome, onNavigateToSearch, onNavigateToAlerts, onNavigateToHeatmap, currentPage = 'home', className, ...otherProps }: DefaultPageLayoutRootProps,
   ref
 ) {
   return (
@@ -122,8 +123,12 @@ const DefaultPageLayoutRoot = React.forwardRef<
         >
           Alerts
         </SidebarRailWithIcons.NavItem>
-        <SidebarRailWithIcons.NavItem icon={<FeatherBarChart2 />}>
-          Projects
+        <SidebarRailWithIcons.NavItem 
+          icon={<FeatherBarChart2 />}
+          selected={currentPage === 'heatmap'}
+          onClick={onNavigateToHeatmap}
+        >
+          Heatmap
         </SidebarRailWithIcons.NavItem>
       </SidebarRailWithIcons>
       {children ? (

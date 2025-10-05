@@ -10,15 +10,17 @@ interface SearchPageProps {
   onNavigateToHome?: () => void;
   onNavigateToSearch?: () => void;
   onNavigateToAlerts?: () => void;
-  currentPage?: 'home' | 'search' | 'alerts';
+  onNavigateToHeatmap?: () => void;
+  currentPage?: 'home' | 'search' | 'alerts' | 'heatmap';
 }
 
-function SearchPage({ onNavigateToHome, onNavigateToSearch, onNavigateToAlerts, currentPage }: SearchPageProps) {
+function SearchPage({ onNavigateToHome, onNavigateToSearch, onNavigateToAlerts, onNavigateToHeatmap, currentPage }: SearchPageProps) {
   return (
     <DefaultPageLayout 
       onNavigateToHome={onNavigateToHome}
       onNavigateToSearch={onNavigateToSearch}
       onNavigateToAlerts={onNavigateToAlerts}
+      onNavigateToHeatmap={onNavigateToHeatmap}
       currentPage={currentPage}
     >
       <div className="flex w-full flex-col items-start gap-6 bg-neutral-50 px-6 py-6">
